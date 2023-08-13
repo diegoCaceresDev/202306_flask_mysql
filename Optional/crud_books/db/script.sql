@@ -1,0 +1,24 @@
+-- Crear esquema (base de datos) crud_books
+CREATE SCHEMA IF NOT EXISTS crud_books;
+USE crud_books;
+
+-- Crear tabla authors
+CREATE TABLE IF NOT EXISTS authors (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY name (name)
+);
+
+-- Crear tabla books
+CREATE TABLE IF NOT EXISTS books (
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    num_of_pages INT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY title (title)
+);

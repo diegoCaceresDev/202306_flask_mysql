@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Usuario {% endblock %}
+
+{% block content %}
+    <h2>Usuario {{ usuario.id }}</h2>
+        <p>Full name: {{ usuario.first_name }} {{ usuario.last_name }} </p>
+        <p>Email: {{ usuario.email }}</p>
+        <p>Created On: {{ usuario.created_at }}</p>
+        <p>Last updated: {{ usuario.updated_at }}</p>
+
+
+<a href="/edit_user/{{ usuario.id }}/" class="btn btn-warning">Edit user</a> <a href="/delete_user/{{ usuario.id }}/" class="btn btn-danger">Delete user</a>
+
+
+{% endblock %}
