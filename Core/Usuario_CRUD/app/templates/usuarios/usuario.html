@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Usuario {% endblock %}
+
+{% block content %}
+<h2></h2>
+<h5></h5>
+<h5></h5>
+<h5></h5>
+<h5></h5>
+
+
+<h2>Usuario {{ usuario.id }}</h2>
+
+<div class="position-relative">
+    <div class="position-absolute top-0 start-100 translate-middle ">
+        <a href="/" class="btn btn-warning me-5 mb-5">Home</a>
+    </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title mb-2">{{ usuario.first_name }} {{ usuario.last_name }} </h5>
+        <p class="card-text">Email: {{ usuario.email }}</p>
+        <p class="card-text">Created On: {{ usuario.created_at }}</p>
+        <p class="card-text">Last updated: {{ usuario.updated_at }} </p>
+        <a href="/edit_user/{{ usuario.id }}/" class="btn btn-warning">Edit user</a> 
+        <a href="/delete_user/{{ usuario.id }}/"class="btn btn-danger">Delete user</a>    </div>
+</div>
+
+{% endblock %}
