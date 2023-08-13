@@ -1,16 +1,14 @@
-from flask import Flask, render_template, session, request, redirect
+"""Configuración del servidor."""
 
-app = Flask(__name__)
+# App
+from app import app
+
+# Controllers
+from app.controllers.authors import *
+from app.controllers.books import *
 
 
-@app.route("/")
-def formulario():
-    return render_template("formulario.html")
 
-@app.route("/process/", methods=["POST"])
-def process_form():
-    print(request.form)
-    return redirect("/")
-
+# Run
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
