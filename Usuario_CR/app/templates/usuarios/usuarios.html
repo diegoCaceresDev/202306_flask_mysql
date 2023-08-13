@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+<h2 class="mb-5">Todos los Usuarios</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.first_name }} {{ usuario.last_name }} </td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/add_user/" class="btn btn-primary">Add a new user</a>
+
+{% endblock %}
