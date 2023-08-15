@@ -25,4 +25,4 @@ def add_ninja():
     
     Ninja.add_ninja(data)
     
-    return redirect("/ninjas/")
+    return redirect("/dojos/")
