@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %} Friendships {% endblock%}
+
+{% block content %}
+
+<div class="row">
+    <div class="col me-5 w-25">
+        <h2>Friendships</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Friend</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for user in friendships %}
+                <tr>
+                    <td>{{user['first_name']}} {{user['last_name']}}</td>
+                    <td>{{user['b.first_name']}} {{user['b.last_name']}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col ms-5">
+        <h2>Add User</h2>
+        <form method="post" action="{{ url_for('add_user')}}">
+            <div class="form-group mt-3">
+                <label for="firstName">Nombre:</label>
+                <input type="text" class="form-control" id="firstName" name="first_name"
+                    placeholder="Ingresa el nombre">
+            </div>
+            <div class="form-group mt-3">
+                <label for="lastName">Apellido:</label>
+                <input type="text" class="form-control" id="lastName" name="last_name"
+                    placeholder="Ingresa el apellido">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Agregar Usuario</button>
+        </form>
+        <hr>
+
+
+        <div class="mt-5">
+            <h2>Create Friendship</h2>
+            <form method="post" action="{{ url_for('create_friendship')}}">
+                <div class="form-group mt-3">
+                    <label for="userSelect">Usuario:</label>
+                    <select class="form-select" id="userSelect" name="user_id">
+                        {% for user in users %}
+                        <option value="{{user['id']}}">                        
+                            {{user['first_name']}} {{user['last_name']}}
+                        </option>                    
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="friendSelect">Amigo:</label>
+                    <select class="form-select" id="friendSelect" name="friend_id">
+                        {% for user in users %}
+                        <option value="{{user['id']}}">                        
+                            {{user['first_name']}} {{user['last_name']}}
+                        </option>                    
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Create</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock%}
