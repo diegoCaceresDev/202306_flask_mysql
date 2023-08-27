@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block estilos %}
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<main class="form-login w-100 ">
+    <form action="/procesar_login" method="post">
+        <h1 class="h3 mb-3 fw-normal">Please log in</h1>
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="btn btn-primary w-100 py-2" type="submit">Log in</button>
+    </form>
+
+    <hr>
+    <a class="btn btn-success   w-100 py-2 mt-3" href="{{ url_for('register')}}" type="submit">Create an account</a>
+    <p class="mt-5 mb-3 text-muted">© Coding Dojo 2023</p>
+
+
+</main>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
