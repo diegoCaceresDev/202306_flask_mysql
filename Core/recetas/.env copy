@@ -1,0 +1,4 @@
+BASE_DATOS=bd
+USUARIO_BASEDATOS=usuario
+PASSWORD_BASEDATOS=contrasena
+SECRET_KEY_FLASK="contrasena"
